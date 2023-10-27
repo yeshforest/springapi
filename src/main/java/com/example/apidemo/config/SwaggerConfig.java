@@ -21,8 +21,8 @@ public class SwaggerConfig {
 
     private Info apiInfo() {
         return new Info()
-                .title("Springdoc 테스트")
-                .description("Springdoc을 사용한 Swagger UI 테스트")
-                .version("1.0.0");
+                .title("Swagger UI와 JWT test")
+                .description("Springdoc을 사용한 Swagger UI 테스트와 JWT 테스트를 위한 로그인,회원가입")
+                .version("1.0.1");
     }
 }

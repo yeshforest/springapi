@@ -4,8 +4,14 @@ springdoc:
   default-produces-media-type: application/json;charset=UTF-8
   swagger-ui:
     path:
-    display-request-duration: true
+    tags-sorter: alpha
     operations-sorter: alpha
+    api-docs:
+      path:
+      groups:
+        enabled: true
+    cache:
+      disabled: true
 spring:
   h2:
     console:

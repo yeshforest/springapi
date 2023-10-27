@@ -53,9 +53,14 @@ public class SecurityConfig {
                 .sessionManagement((configurer -> configurer.sessionCreationPolicy(SessionCreationPolicy.STATELESS)))
 
                 // 로그인, 회원가입 API 는 토큰이 없는 상태에서 요청이 들어오기 때문에 permitAll 설정
-                .authorizeHttpRequests(authoize -> authoize.requestMatchers(new AntPathRequestMatcher("/auth/**"))
-                        .permitAll().anyRequest().authenticated() )     // 나머지 API 는 전부 인증 필요
+                .authorizeHttpRequests(authorize -> authorize
+                        .requestMatchers(new AntPathRequestMatcher("/auth/**")).permitAll()
 
+                // swagger 관련 요청도 permitAll설정
+                        .requestMatchers(new AntPathRequestMatcher("/swagger-ui/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/v3/api-docs/**")).permitAll().
+
+                        anyRequest().authenticated()) // 나머지 API 는 전부 인증 필요
 
                 // JwtFilter 를 addFilterBefore 로 등록했던 JwtSecurityConfig 클래스를 적용
                 .apply(new JwtSecurityConfig(tokenProvider));
