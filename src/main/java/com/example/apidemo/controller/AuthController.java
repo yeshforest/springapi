@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+// ResponseEntity는 사용자의 HttpRequest에 대한 응답 데이터를 포함하는 클래스이다.
+// 따라서 HttpStatus, HttpHeaders, HttpBody를 포함한다.
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
