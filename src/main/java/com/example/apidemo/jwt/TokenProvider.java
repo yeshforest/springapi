@@ -20,7 +20,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.stream.Collectors;
 
-@Slf4j
+@Slf4j // 로깅에 대한 추상 레이어를 제공하는 인터페이스의 모음이다 (로그를 편하게 남길때 씀)
 @Component
 public class TokenProvider {
 /// 토큰 생성, 유효성 검증 담당
@@ -38,6 +38,7 @@ public class TokenProvider {
     }
 
     public TokenDto generateTokenDto(Authentication authentication) {
+
         // 권한들 가져오기
         String authorities = authentication.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
@@ -70,7 +71,7 @@ public class TokenProvider {
 
     public Authentication getAuthentication(String accessToken) {
         // 토큰 복호화
-        Claims claims = parseClaims(accessToken);
+        Claims claims = parseClaims(accessToken); // 토큰 이용하여 claims만듦
 
         if (claims.get(AUTHORITIES_KEY) == null) {
             throw new RuntimeException("권한 정보가 없는 토큰입니다.");
@@ -89,6 +90,7 @@ public class TokenProvider {
     }
 
     public boolean validateToken(String token) {
+        // 토큰을 파싱하여 문제있으면 return true, 없으면 return false
         try {
             Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token);
             return true;
