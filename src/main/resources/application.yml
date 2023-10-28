@@ -13,24 +13,16 @@ springdoc:
     cache:
       disabled: true
 spring:
-  h2:
-    console:
-      enabled: true
-
   datasource:
-    url: jdbc:h2:tcp://localhost/~/apidemo
-    driver-class-name: org.h2.Driver
-    username: sa
-    password:
+    url: jdbc:mysql://52.79.72.12:3306/apidemo?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: builder
+    password: 1234
 
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
-    hibernate:
-      ddl-auto: create-drop
-    properties:
-      hibernate:
-        format_sql: true
-        show_sql: true
+    database: mysql
+    generate-ddl: true
+    show-sql: true
 
 logging:
   level:
