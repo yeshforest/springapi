@@ -4,13 +4,13 @@ import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import java.util.Set;
-
+//TODO 주석 추가
 @Entity
 @Getter
 @NoArgsConstructor
 public class Member {
+    /// 시큐리티 테스트를 위한 사용자 도메인
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
