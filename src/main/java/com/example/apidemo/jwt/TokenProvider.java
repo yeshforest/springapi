@@ -24,6 +24,7 @@ import java.util.stream.Collectors;
 @Component
 public class TokenProvider {
 /// 토큰 생성, 유효성 검증 담당
+/// 유저 정보로 토큰을 만들거나 토큰을 바탕으로 유저 정보를 가져온다.
     private static final String AUTHORITIES_KEY = "auth";
     private static final String BEARER_TYPE = "Bearer";
     private static final long ACCESS_TOKEN_EXPIRE_TIME = 1000 * 60 * 30;            // 30분
@@ -31,9 +32,9 @@ public class TokenProvider {
 
     private final Key key;
 
-    public TokenProvider(@Value("${jwt.secret}") String secretKey) { // 주입받은 secretkey 값을
-        byte[] keyBytes = Decoders.BASE64.decode(secretKey);         // base64 decode
-        this.key = Keys.hmacShaKeyFor(keyBytes);                     // key변수에 할당
+    public TokenProvider(@Value("${jwt.secret}") String secretKey) { // 주입받은 secretkey 값을 (application.yml에 정의하놓은 jwt.secret값)
+        byte[] keyBytes = Decoders.BASE64.decode(secretKey);         // base64 decode하여
+        this.key = Keys.hmacShaKeyFor(keyBytes);                     // key변수에 할당 (JWT만들 때 사용하는 암호화 key값 생성)
     }
 
     public TokenDto generateTokenDto(Authentication authentication) {

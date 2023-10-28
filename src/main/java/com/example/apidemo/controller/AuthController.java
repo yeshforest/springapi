@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
-public class AuthController {
+public class AuthController { // TODO: swagger 관련 어노테이션 추가
     private final AuthService authService;
 
     @PostMapping("/signup")
