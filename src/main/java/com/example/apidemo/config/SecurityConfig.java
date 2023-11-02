@@ -5,7 +5,6 @@ import com.example.apidemo.jwt.JwtAuthenticationEntryPoint;
 import com.example.apidemo.jwt.JwtSecurityConfig;
 import com.example.apidemo.jwt.TokenProvider;
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.filters.CorsFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -15,7 +14,6 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
@@ -28,6 +26,9 @@ public class SecurityConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
+        // BCryptPasswordEncoder 설정을 기반으로 비밀번호가 해싱된다.
+        // 참고문서 : https://jaykaybaek.tistory.com/28
+
         return new BCryptPasswordEncoder();
     }
 

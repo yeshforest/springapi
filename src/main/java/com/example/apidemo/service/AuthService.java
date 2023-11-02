@@ -23,7 +23,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class AuthService {
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
     private final MemberRepository memberRepository;
-    private final PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder; // 비밀번호 암호화
     private final TokenProvider tokenProvider;
     private final RefreshTokenRepository refreshTokenRepository;
 
