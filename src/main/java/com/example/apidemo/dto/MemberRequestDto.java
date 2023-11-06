@@ -2,6 +2,7 @@ package com.example.apidemo.dto;
 
 import com.example.apidemo.entity.Authority;
 import com.example.apidemo.entity.Member;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,10 +14,14 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@Schema(description = "로그인 / 회원가입 요청 DTO")
 public class MemberRequestDto {
     /// 로그인/회원가입을 요청할 때 쓰이는 Dto
+    @Schema(description = "이메일",example = "love@pipebuilder.com")
     private String email;
+    @Schema(description = "비밀번호",example = "1234")
     private String password;
+    @Schema(description = "이름",example = "민지")
     private String username;
 
     public Member toMember(PasswordEncoder passwordEncoder) {
