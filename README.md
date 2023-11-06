@@ -29,7 +29,11 @@ hr.r@nohyelim-ui-MacBookAir bin % ./h2.sh
 
 2. spring boot 실행
 3. 테스트는 Swagger UI참고
-Swagger-UI Url : http://localhost:8080/swagger-ui/index.html 
+Swagger-UI Url : http://localhost:8080/swagger-ui/index.html <br>
+**헤더 인증 방법**
+아래 사진의 오른쪽 자물쇠 클릭 -> spring boot 프로젝트 내의 application.yml파일 참고하여 jwt key 입력 -> 이후 api 요청 시 인증된 경우의 응답으로 작동 <br> <br>
+![스크린샷 2023-11-06 오후 11 34 09](https://github.com/yeshforest/springapi/assets/88522164/590cdde1-4f7f-4b8c-8b06-02cedaddac9f)
+
 
 ## 연관 프로젝트
 * Shampoo
