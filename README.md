@@ -1,5 +1,6 @@
 # SpringTest
-
+## 프로젝트 설명
+스프링 시큐리티에 대한 예시코드입니다. jwt를 사용했습니다. get과 post요청 예제와 함께 해당 api를 swagger에 작성하는법을 포함합니다.
 ## 포함 예제
 
 * spring security + jwt
